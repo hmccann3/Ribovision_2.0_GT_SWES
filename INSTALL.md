@@ -35,15 +35,15 @@
 	
 	>export DJANGO_PASSWORD='' (MySQL password provided by admin)
 
-	g. Set up the Georgia Tech GlobalProtect VPN. Follow <a href="https://vpn.gatech.edu/https/gatech.service-now.com/home/?id=kb_article_view&sysparm_article=KB0026837">these</a> instructions.
+	g. Set up GaTech VPN with the Cisco AnyConnect Secure Mobility Client. Follow <a href="https://faq.oit.gatech.edu/content/how-do-i-get-started-campus-vpn">these</a> instructions.
 
-2. Clone the <a href="https://github.com/hmccann3/Ribovision_2.0_GT_SWES.git">project repository</a> in a new folder. Switch to the local branch for development.
+2. Clone the <a href="https://github.com/LDWLab/DESIRE.git">project repository</a> in a new folder. Get on the latest development branch.
 
 3. Using the command line from the root directory of the project run the following commands:
 
 	a. Activate the virtual environment
 
-	>source .venv/bin/activate
+	>source ./env/bin/activate
 
 	b. Install python requirements
 
@@ -127,7 +127,7 @@
 	> python3 seleniumtest.py to run tests
 # Serving a public branch
 
-Public set-up does not differ significantly from local installations. There are several things to keep in mind when setting-up the RiboVision 2 web-server on a Linux machine. The web-server should have its own home folder within the Linux server (in our first implementation this was located in /home/RiboVision3). The steps are following the numbering from INSTALLATION up above:
+Public set-up does not differ significantly from local installations. There are several things to keep in mind when setting-up DESIRE/ProteoVision web-server on a Linux machine. The web-server should have it's own home folder within the Linux server (in our first implementation this was located in /home/Desire-Server). The steps are following the numbering from INSTALLATION up above:
 
 1. Initial set up and prerequisites:
 
@@ -178,9 +178,9 @@ Public set-up does not differ significantly from local installations. There are 
 
 	>git fetch
 
-	Merge the origin/local branch onto public (you should be on public)
+	Merge the origin/dev branch onto public (you should be on public)
 
-	>git merge origin/local
+	>git merge origin/dev
 
 	Rebuild Node.js scripts
 	
@@ -196,10 +196,17 @@ Public set-up does not differ significantly from local installations. There are 
 
 	Touch this so that Apache knows things have changed
 	
-	> touch /home/RiboVision3/Ribovision_2.0_GT/DESIRE/wsgi.py
+	> touch /home/Desire-Server/DESIRE/DESIRE/wsgi.py
 
 	After this command the public online web-server will be updated.
 
-	If everything works fine push your changes to the origin/master:
+	If everything works fine push your changes to the origin/public:
 
-	> git push origin master
+	> git push origin public
+
+	To build documentation in the correct directory:
+
+	```bash
+	cd mkdocs
+	mkdocs build -d /home/Desire-Server/proteovision_docs/
+	```

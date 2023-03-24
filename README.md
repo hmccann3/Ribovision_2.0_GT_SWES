@@ -1,6 +1,5 @@
 # RiboVision 2.0
 
-RiboVision2.0 is open source project available at https://github.com/LDWLab/Ribovision_2.0_GT
 
 ## About
 
