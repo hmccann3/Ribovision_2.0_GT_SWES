@@ -88,16 +88,14 @@ def constructEbiAlignmentString(fasta, ebi_sequence, startIndex):
     now = datetime.datetime.now()
     fileNameSuffix = "_" + str(now.year) + "_" + str(now.month) + "_" + str(now.day) + "_" + str(now.hour) + "_" + str(now.minute) + "_" + str(now.second) + "_" + str(now.microsecond)
     ### BE CAREFUL WHEN MERGING THE FOLLOWING LINES TO PUBLIC; PATHS ARE HARDCODED FOR THE APACHE SERVER ###
-    print(os.getcwd())
     alignmentFileName = "static/alignment" + fileNameSuffix + ".txt"
     ebiFileName = "static/ebi_sequence" + fileNameSuffix + ".txt"
     mappingFileName = ebiFileName + ".map"
     fasta = re.sub('>Structure sequence[\s\S]*?>','>',fasta)
-    print(os.getcwd())
     fh = open(alignmentFileName, "w")
     fh.write(fasta)
     fh.close()
-    print(os.getcwd())
+    
     fh = open(ebiFileName, "w")
     fh.write(">Structure sequence\n")
     fh.write(ebi_sequence)
