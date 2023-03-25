@@ -88,8 +88,8 @@ def constructEbiAlignmentString(fasta, ebi_sequence, startIndex):
     now = datetime.datetime.now()
     fileNameSuffix = "_" + str(now.year) + "_" + str(now.month) + "_" + str(now.day) + "_" + str(now.hour) + "_" + str(now.minute) + "_" + str(now.second) + "_" + str(now.microsecond)
     ### BE CAREFUL WHEN MERGING THE FOLLOWING LINES TO PUBLIC; PATHS ARE HARDCODED FOR THE APACHE SERVER ###
-    alignmentFileName = "../static/alignment" + fileNameSuffix + ".txt"
-    ebiFileName = "../static/ebi_sequence" + fileNameSuffix + ".txt"
+    alignmentFileName = "/home/RiboVision3/static/alignment" + fileNameSuffix + ".txt"
+    ebiFileName = "/home/RiboVision3/static/ebi_sequence" + fileNameSuffix + ".txt"
     mappingFileName = ebiFileName + ".map"
     fasta = re.sub('>Structure sequence[\s\S]*?>','>',fasta)
     fh = open(alignmentFileName, "w")
@@ -726,6 +726,17 @@ def modified_residues(request, pdbid, chain_id):
         e = match.end() + 1
         modified_residues.append([sequence_without_spaces[s:e - 2], s, e])
     #indices = [m.start(0) for m in iter]
+    import os
+    import datetime
+    cwd = os.getcwd()
+    now = datetime.datetime.now()
+    
+
+    os.chdir('/home/RiboVision3/R2DT/rna/R2DT')
+    #cmd = f'LANG=en_US.utf8 /usr/bin/python3 r2dt.py draw /home/RiboVision3/R2DT/rna/R2DT/examples/examples.fasta test15'
+    #cmd = f'LANG=en_US.utf8 /usr/bin/python3 r2dt.py draw /home/RiboVision3/R2DT/rna/R2DT/sequence10.fasta test10'
+    #os.system(cmd)
+    
     context = {
         'Modified' : modified_residues
     }
@@ -765,9 +776,8 @@ def protein_contacts(request, pdbid, chain_id):
 def r2dt(request, sequence):
     cwd = os.getcwd()
     now = datetime.datetime.now()
-    
-    RIBODIR=os.environ['RIBODIR']
-    os.chdir('/rna/r2dt')
+    os.chdir('/home/RiboVision3/R2DT/rna/R2DT')
+    #os.chdir('/home/anton/RiboVision2/rna/R2DT-master')
     fileNameSuffix = "_" + str(now.year) + "_" + str(now.month) + "_" + str(now.day) + "_" + str(now.hour) + "_" + str(now.minute) + "_" + str(now.second) + "_" + str(now.microsecond)
   
     newcwd = os.getcwd()
@@ -776,11 +786,10 @@ def r2dt(request, sequence):
         f.write(sequence)
         f.close()       
 
-    output = f"{newcwd}/R2DT-test20{fileNameSuffix}"
+    output = f"{newcwd}/R2DT-test{fileNameSuffix}"
 
     cmd = ['python3', 'r2dt.py', 'draw', 'sequence10.fasta', output]
     subprocess.run(cmd)
-
     filename = '' 
           
     for topdir, dirs, files in os.walk(f'{output}/results/json'):
