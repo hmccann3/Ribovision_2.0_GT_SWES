@@ -1,4 +1,4 @@
-###Overview:
+#Overview:
 
 RiboVision 2.0 is a website for the display of ribosomal RNA structures in 3 dimensions. The website was originally forked from another website to display ribosomal protein structures, so there is a lot of residual code that no longer makes sense. Additionally, the requirements for the site are outdated/inaccurate and it is difficult to get working from scratch.
 
