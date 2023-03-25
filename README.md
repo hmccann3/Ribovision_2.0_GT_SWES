@@ -9,7 +9,7 @@ developed at the University of British Columbia by the group of Prof. Khanh Dao-
 
 ## Install
 
-Installation steps are in INSTALL.MD
+Installation steps are in INSTALL.md
 
 ## Contributors
 Petar I Penev, Caeden M. Meade, Artem Kushner.
