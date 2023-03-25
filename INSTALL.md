@@ -99,7 +99,7 @@
 
 	a. cd into the react-msa-viewer directory and execute the following (might need sudo and **do not** use VS code terminal)
 
-	c
+	> npm install
 	
 	> npm link
 
