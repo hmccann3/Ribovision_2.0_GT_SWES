@@ -4,7 +4,7 @@ RiboVision 2.0 is a website for the display of ribosomal RNA structures in 3 dim
 
 ###Solution:
 
-I will remove code that is currently unused and clean up our repository. I will change references to proteins to reflect the fact that we’re now dealing with nucleic acids. I’ll revise our requirements.txt and package.json files so that all dependencies are installed properly. I’ll also attempt to reformat and comment some parts of the codebase to make it clearer (RNA viewer repository, maybe some other files). I will create either internal unit tests or UI tests for the codebase. I will get a MySQL dump of our database so it is publicly accessible <- didn’t get to this. 
+I will remove code that is currently unused and clean up our repository. I will change references to proteins to reflect the fact that we’re now dealing with nucleic acids. I’ll revise our requirements.txt and package.json files so that all dependencies are installed properly. I’ll also attempt to reformat and comment some parts of the codebase to make it clearer (pdbe-rna-viewer repository, maybe some other files). I will create either internal unit tests or UI tests for the codebase. I will get a MySQL dump of our database so it is publicly accessible <- didn’t get to this. 
 
 ###Background:
 
